@@ -1,0 +1,4 @@
+ToolSet: 15.0 (local)@D:\Visual Studio 2017
+Options: msvc.arch=x64
+
+Options:-DCMAKE_MAKE_PROGRAM=D:/CLion 2023.1.4/bin/ninja/win/x64/ninja.exe

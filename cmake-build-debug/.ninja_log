@@ -1,0 +1,14 @@
+# ninja log v5
+1	690	7234700020483945	CMakeFiles/learnThread.dir/main.cpp.obj	d35d5961be7e7a5a
+518	872	7234813187631252	learnThread.exe	88e9d2650b864261
+1	517	7234813184668869	CMakeFiles/learnThread.dir/test/test1.cpp.obj	6790c2f7a34cf581
+0	586	7234813610433626	CMakeFiles/learnThread.dir/test/test1.cpp.obj	2a493d825c7b7792
+587	883	7234813612916983	learnThread.exe	88e9d2650b864261
+1	681	7234814293660083	CMakeFiles/learnThread.dir/test/test1.cpp.obj	2a493d825c7b7792
+682	976	7234814296254757	learnThread.exe	88e9d2650b864261
+1	663	7234815675836559	CMakeFiles/learnThread.dir/test/test1.cpp.obj	2a493d825c7b7792
+663	969	7234815678508832	learnThread.exe	88e9d2650b864261
+1	832	7234816622986561	CMakeFiles/learnThread.dir/test/test1.cpp.obj	2a493d825c7b7792
+832	1220	7234816626461932	learnThread.exe	88e9d2650b864261
+1	948	7234824805284514	CMakeFiles/learnThread.dir/test/test1.cpp.obj	2a493d825c7b7792
+949	1307	7234824808501411	learnThread.exe	88e9d2650b864261
