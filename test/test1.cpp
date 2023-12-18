@@ -78,6 +78,62 @@ void auto_guard() {
     std::cout << "auto guard finished" << std::endl;
 }
 
+void print_str(int i, std::string const& s) {
+    std::cout << "i is" << i << " str is " << s << std::endl;
+}
+
+void danger_oops(int som_param) {
+    char buffer[1024];
+    sprintf(buffer, "%i", som_param);
+    std::thread t(print_str, 3, buffer);
+    t.detach();
+    std::cout << "danger oops finished " << std::endl;
+}
+
+void safe_oops(int some_param) {
+    char buffer[1024];
+    sprintf(buffer, "%i", some_param);
+    std::thread t(print_str, 3, std::string(buffer));
+    t.detach();
+}
+
+void change_param(int& param) {
+    param++;
+}
+
+void ref_oops(int some_param) {
+    std::cout << "before change, param is " << some_param << std::endl;
+    std::thread t2(change_param, std::ref(some_param));
+    t2.join();
+    std::cout << "after change, param is " << some_param << std::endl;
+}
+
+class X {
+public:
+    void do_lengthy_work() {
+        std::cout << "do_lengthy_work " << std::endl;
+    }
+};
+
+void bind_class_oops() {
+    X my_x;
+    std::thread t(&X::do_lengthy_work, &my_x);
+    t.join();
+}
+
+void deal_unique(std::unique_ptr<int> p) {
+    std::cout << "unique ptr data is " << *p << std::endl;
+    (*p)++;
+
+    std::cout << "after unique ptr data is " << *p << std::endl;
+}
+
+void move_oops() {
+    auto p = std::make_unique<int>(100);
+    std::thread t(deal_unique, std::move(p));
+    t.join();
+}
+
 int main() {
 //    std::string hellostr = "hello world!";
 //    std::thread t1(thread_work1, hellostr);
@@ -99,7 +155,13 @@ int main() {
 //    use_join();
 //
 //    catch_exception();
-    auto_guard();
+//    auto_guard();
+
+//    safe_oops(3);
+//    std::this_thread::sleep_for(std::chrono::seconds(1));
+
+    ref_oops(100);
+    std::this_thread::sleep_for(std::chrono::seconds(1));
 
     return 0;
 }
