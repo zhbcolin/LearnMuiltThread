@@ -41,40 +41,76 @@ include CMakeFiles\rules.ninja
 
 cmake_ninja_workdir = C$:\Users\DELL\CLionProjects\learnThread\cmake-build-debug\
 # =============================================================================
-# Object build statements for EXECUTABLE target learnThread
+# Object build statements for EXECUTABLE target test1
 
 
 #############################################
-# Order-only phony target for learnThread
+# Order-only phony target for test1
 
-build cmake_object_order_depends_target_learnThread: phony || CMakeFiles\learnThread.dir
+build cmake_object_order_depends_target_test1: phony || CMakeFiles\test1.dir
 
-build CMakeFiles\learnThread.dir\test\test1.cpp.obj: CXX_COMPILER__learnThread_Debug C$:\Users\DELL\CLionProjects\learnThread\test\test1.cpp || cmake_object_order_depends_target_learnThread
+build CMakeFiles\test1.dir\test\test1.cpp.obj: CXX_COMPILER__test1_Debug C$:\Users\DELL\CLionProjects\learnThread\test\test1.cpp || cmake_object_order_depends_target_test1
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -Zi -std:c++17
-  OBJECT_DIR = CMakeFiles\learnThread.dir
-  OBJECT_FILE_DIR = CMakeFiles\learnThread.dir\test
-  TARGET_COMPILE_PDB = CMakeFiles\learnThread.dir\
-  TARGET_PDB = learnThread.pdb
+  OBJECT_DIR = CMakeFiles\test1.dir
+  OBJECT_FILE_DIR = CMakeFiles\test1.dir\test
+  TARGET_COMPILE_PDB = CMakeFiles\test1.dir\
+  TARGET_PDB = test1.pdb
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target learnThread
+# Link build statements for EXECUTABLE target test1
 
 
 #############################################
-# Link the executable learnThread.exe
+# Link the executable test1.exe
 
-build learnThread.exe: CXX_EXECUTABLE_LINKER__learnThread_Debug CMakeFiles\learnThread.dir\test\test1.cpp.obj
+build test1.exe: CXX_EXECUTABLE_LINKER__test1_Debug CMakeFiles\test1.dir\test\test1.cpp.obj
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -Zi
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
-  OBJECT_DIR = CMakeFiles\learnThread.dir
+  OBJECT_DIR = CMakeFiles\test1.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\learnThread.dir\
-  TARGET_FILE = learnThread.exe
-  TARGET_IMPLIB = learnThread.lib
-  TARGET_PDB = learnThread.pdb
+  TARGET_COMPILE_PDB = CMakeFiles\test1.dir\
+  TARGET_FILE = test1.exe
+  TARGET_IMPLIB = test1.lib
+  TARGET_PDB = test1.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target test2
+
+
+#############################################
+# Order-only phony target for test2
+
+build cmake_object_order_depends_target_test2: phony || CMakeFiles\test2.dir
+
+build CMakeFiles\test2.dir\test\test2.cpp.obj: CXX_COMPILER__test2_Debug C$:\Users\DELL\CLionProjects\learnThread\test\test2.cpp || cmake_object_order_depends_target_test2
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -Zi -std:c++17
+  OBJECT_DIR = CMakeFiles\test2.dir
+  OBJECT_FILE_DIR = CMakeFiles\test2.dir\test
+  TARGET_COMPILE_PDB = CMakeFiles\test2.dir\
+  TARGET_PDB = test2.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test2
+
+
+#############################################
+# Link the executable test2.exe
+
+build test2.exe: CXX_EXECUTABLE_LINKER__test2_Debug CMakeFiles\test2.dir\test\test2.cpp.obj
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -Zi
+  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
+  LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  OBJECT_DIR = CMakeFiles\test2.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\test2.dir\
+  TARGET_FILE = test2.exe
+  TARGET_IMPLIB = test2.lib
+  TARGET_PDB = test2.pdb
 
 
 #############################################
@@ -102,7 +138,9 @@ build rebuild_cache: phony CMakeFiles\rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build learnThread: phony learnThread.exe
+build test1: phony test1.exe
+
+build test2: phony test2.exe
 
 # =============================================================================
 # Folder targets.
@@ -112,7 +150,7 @@ build learnThread: phony learnThread.exe
 #############################################
 # Folder: C:/Users/DELL/CLionProjects/learnThread/cmake-build-debug
 
-build all: phony learnThread.exe
+build all: phony test1.exe test2.exe
 
 # =============================================================================
 # Built-in targets
