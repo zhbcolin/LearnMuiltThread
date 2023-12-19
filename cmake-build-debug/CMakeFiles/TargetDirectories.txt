@@ -1,3 +1,5 @@
-C:/Users/DELL/CLionProjects/learnThread/cmake-build-debug/CMakeFiles/learnThread.dir
+C:/Users/DELL/CLionProjects/learnThread/cmake-build-debug/CMakeFiles/test1.dir
+C:/Users/DELL/CLionProjects/learnThread/cmake-build-debug/CMakeFiles/test2.dir
+C:/Users/DELL/CLionProjects/learnThread/cmake-build-debug/CMakeFiles/test3.dir
 C:/Users/DELL/CLionProjects/learnThread/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/DELL/CLionProjects/learnThread/cmake-build-debug/CMakeFiles/rebuild_cache.dir

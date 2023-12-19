@@ -112,6 +112,42 @@ build test2.exe: CXX_EXECUTABLE_LINKER__test2_Debug CMakeFiles\test2.dir\test\te
   TARGET_IMPLIB = test2.lib
   TARGET_PDB = test2.pdb
 
+# =============================================================================
+# Object build statements for EXECUTABLE target test3
+
+
+#############################################
+# Order-only phony target for test3
+
+build cmake_object_order_depends_target_test3: phony || CMakeFiles\test3.dir
+
+build CMakeFiles\test3.dir\test\test3.cpp.obj: CXX_COMPILER__test3_Debug C$:\Users\DELL\CLionProjects\learnThread\test\test3.cpp || cmake_object_order_depends_target_test3
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -Zi -std:c++17
+  OBJECT_DIR = CMakeFiles\test3.dir
+  OBJECT_FILE_DIR = CMakeFiles\test3.dir\test
+  TARGET_COMPILE_PDB = CMakeFiles\test3.dir\
+  TARGET_PDB = test3.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test3
+
+
+#############################################
+# Link the executable test3.exe
+
+build test3.exe: CXX_EXECUTABLE_LINKER__test3_Debug CMakeFiles\test3.dir\test\test3.cpp.obj
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -Zi
+  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
+  LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  OBJECT_DIR = CMakeFiles\test3.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\test3.dir\
+  TARGET_FILE = test3.exe
+  TARGET_IMPLIB = test3.lib
+  TARGET_PDB = test3.pdb
+
 
 #############################################
 # Utility command for edit_cache
@@ -142,6 +178,8 @@ build test1: phony test1.exe
 
 build test2: phony test2.exe
 
+build test3: phony test3.exe
+
 # =============================================================================
 # Folder targets.
 
@@ -150,7 +188,7 @@ build test2: phony test2.exe
 #############################################
 # Folder: C:/Users/DELL/CLionProjects/learnThread/cmake-build-debug
 
-build all: phony test1.exe test2.exe
+build all: phony test1.exe test2.exe test3.exe
 
 # =============================================================================
 # Built-in targets
