@@ -35,6 +35,7 @@ public:
         data.push(std::move(new_value));
     }
 
+    // 问题代码
     T pop() {
         std::lock_guard<std::mutex> lock(m);
         auto element = data.top();
@@ -42,6 +43,7 @@ public:
         return element;
     }
 
+    // 危险
     bool empty() const {
         std::lock_guard<std::mutex> lock(m);
         return data.empty();
@@ -92,7 +94,8 @@ public:
     }
     std::shared_ptr<T> pop() {
         std::lock_guard<std::mutex> lock(m);
-        if(data.empty()) throw empty_stack();
+        //if(data.empty()) throw empty_stack();
+        if(data.empty()) return nullptr;
         std::shared_ptr<T> const res(std::make_shared<T>(data.top()));
         data.pop();
         return res;
@@ -123,8 +126,21 @@ void test_lock() {
         }
     });
 
+    std::thread t3([](){
+        while(true) {
+            {
+                std::lock_guard<std::mutex> lk_guard(mtx1);
+                --shared_data;
+                std::cout << "current thread is " << std::this_thread::get_id() << std::endl;
+                std::cout << "shared data is " << shared_data << std::endl;
+            }
+            std::this_thread::sleep_for(std::chrono::microseconds(10));
+        }
+    });
+
     t1.join();
     t2.join();
+    t3.join();
 };
 
 std::mutex t_lock1;
@@ -212,7 +228,7 @@ private:
 public:
     som_big_object(int data) : _data(data) {}
     som_big_object(const som_big_object& b2) : _data(b2._data) {
-        _data = b2._data;
+        //_data = b2._data;
     }
     som_big_object(som_big_object&& b2) : _data(std::move(b2._data)) {}
 
@@ -372,7 +388,6 @@ void test_hierarchy_lock() {
 }
 
 int main() {
-    //test_lock();
+    test_lock();
     //test_threadsafe_stack1();
-    std::cout << "Hello World!\n";
 }
