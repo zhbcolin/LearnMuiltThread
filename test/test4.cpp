@@ -127,3 +127,52 @@ private:
     std::map<std::string, std::string> _dns_info;
     mutable std::shared_mutex  _shared_mtx;
 };
+
+class RecursiveDemo {
+public:
+    RecursiveDemo() {}
+    bool QueryStudent(std::string name) {
+        std::lock_guard<std::recursive_mutex> recursive_lock(_recursive_mtx);
+        auto iter_find = _students_info.find(name);
+        if(iter_find == _students_info.end()) {
+            return false;
+        }
+        return true;
+    }
+
+    void AddScore(std::string name, int score) {
+        std::lock_guard<std::recursive_mutex> recursive_lock(_recursive_mtx);
+        if(!QueryStudent(name)) {
+            _students_info.insert(std::make_pair(name, score));
+            return;
+        }
+        _students_info[name] = _students_info[name] + score;
+    }
+
+    void AddScoreAtomic(std::string name, int score) {
+        std::lock_guard<std::recursive_mutex> recursive_lock(_recursive_mtx);
+        auto iter_find = _students_info.find(name);
+        if(iter_find == _students_info.end()) {
+            _students_info.insert(std::make_pair(name, score));
+            return;
+        }
+        _students_info[name] = _students_info[name] + score;
+        return;
+    }
+
+private:
+    std::map<std::string, int> _students_info;
+    std::recursive_mutex _recursive_mtx;
+};
+
+int main() {
+//    use_unique();
+    owns_lock();
+//    defer_lock();
+//    use_unique();
+//    use_own_defer();
+//    use_own_adopt();
+//    safe_swap();
+//    safe_swap2();
+//    use_return();
+}
